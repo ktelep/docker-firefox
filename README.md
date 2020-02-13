@@ -10,18 +10,28 @@ How to execute:
 1.  Build the docker image
 
 
-    docker build -t="ktelep/docker-firefox-java" .
+    `docker build -t="ktelep/docker-firefox-java" .`
 
 
 2.  Start the container
 
 
-    docker run -p 5900:5900 ktelep/docker-firefox-java x11vnc -forever -create 
+    `docker run -p 5900:5900 ktelep/docker-firefox-java x11vnc -forever -create`
 
 
 3.  Connect to Firefox using your VNC client of choice on port 5900 
 
 
-You may wish to add a -v <localpath>:<containerpath> if you want to use Virtual Media or the like to mount ISOs for loading Operating Systems/etc. on servers.
+You may wish to add a -v `<localpath>:<containerpath>` if you want to use Virtual Media or the like to mount ISOs for loading Operating Systems/etc. on servers.
 
 
+Or you can use docker-compose:
+
+1. Build and start
+
+    `docker-compose up -d`
+
+2. Connect to `localhost:5900` with VNC
+
+
+A volume will be mounted `/data/iso:/data` where you can put any files you might need in the container

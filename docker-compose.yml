@@ -1,0 +1,14 @@
+version: '2'
+
+services:
+    docker-firefox-java:
+        container_name: docker-firefox-java
+        build:
+          context: ./
+          dockerfile: Dockerfile
+        image: ktelep/docker-firefox-java
+        ports:
+          - 5900:5900
+        volumes:
+          - /data/iso:/data
+        restart: unless-stopped
